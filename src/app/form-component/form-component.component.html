@@ -1,0 +1,62 @@
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 offset-md-3">
+        <h3>Technify-IT Form</h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="name" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"/>
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">First Name is required</div>
+              <div *ngIf="f['name'].invalid && f['name'].value != ''">First Name is invalid</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastname" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"/>
+            <div *ngIf="submitted && f['lastname'].errors" class="text-danger">
+              <div *ngIf="f['lastname'].errors['required']">Last Name is required</div>
+              <div *ngIf="f['lastname'].invalid && f['lastname'].value != ''">Last Name is invalid</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="email" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].invalid && f['email'].value != ''">Email must be a valid email address</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" formControlName="num" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['num'].errors }"/>
+            <div *ngIf="submitted && f['num'].errors" class="invalid-feedback">
+              <div *ngIf="f['num'].errors['required']">number is required</div>
+              <div *ngIf="f['num'].invalid && f['num'].value != ''">Number must be 8 digits</div>
+            </div>
+          </div>
+          <div *ngIf="success" class="row justify-content-center">
+            <h4 class="text-success font-weight-bold">
+              form completed with success
+            </h4>
+          </div>
+          <div class="row justify-content-center">
+            <div class="form-group col-sm-4">
+              <button type="submit" class="btn-block btn-primary">Valider</button>
+            </div>
+            <div class="form-group col-sm-4">
+              <button type="button" class="btn-block btn-close-white" (click)="resetForm()">Annuler</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
