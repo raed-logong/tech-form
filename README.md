@@ -1,3 +1,5 @@
+# to Run the Projet
+run "npm install" then run "ng serve"
 # TechForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
